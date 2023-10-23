@@ -9,6 +9,50 @@ import AddBookForm from './components/AddBookForm.js';
 import SearchForm from './components/SearchForm.js';
 import { Button } from 'reactstrap';
 
+
+import { legacy_createStore, combineReducers  } from 'redux';
+
+function sReducer (state = 0, action) {
+  if (action.type == "set/s") {
+    return action.value;
+  }
+  return state;
+}
+
+function pReducer (state = 0.0, action) {
+  if (action.type == "set/p") {
+    return action.value;
+  }
+  return state;
+}
+
+function nReducer (state = 0, action) {
+  if (action.type == "set/n") {
+    return action.value;
+  }
+  return state;
+}
+
+// пытаемся прочитать начальное начальное состояние из локального хранилища, или создаем новое
+const preloadedState = JSON.parse(localStorage.getItem("credit-1")) ?? { s: 3_000_000, p: 12.3, n: 10 };
+
+const store = legacy_createStore(combineReducers({ s: sReducer, p: pReducer, n: nReducer }, preloadedState));
+
+store.subscribe(() => {
+  console.log(store.getState());
+
+  // обновление локального хранилища при изменении состояния
+  localStorage.setItem("credit-1", JSON.stringify(store.getState()))
+});
+
+store.dispatch({ type: "set/s", value: 1_000_000 });
+store.dispatch({ type: "set/p", value: 11.5 });
+store.dispatch({ type: "set/n", value: 5 });
+
+setTimeout(() => store.dispatch({ type: "set/s", value: 5_000_000 }), 5000);
+
+
+
 class App extends React.Component{
  
   constructor(props){
@@ -76,28 +120,5 @@ class App extends React.Component{
     </div>;
   }
 }
-
-/*
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-*/
 
 export default App;
