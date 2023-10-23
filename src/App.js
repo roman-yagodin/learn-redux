@@ -7,6 +7,7 @@ import BookWithoutPrice from "./components/BookWithoutPrice.js";
 import Basket from './components/Basket.js';
 import AddBookForm from './components/AddBookForm.js';
 import SearchForm from './components/SearchForm.js';
+import { Button } from 'reactstrap';
 
 class App extends React.Component{
  
@@ -67,6 +68,7 @@ class App extends React.Component{
     )
     )
     return <div>
+      <Button color="danger">Danger!</Button>
       <Basket items={this.state.items} dataBook={this.state.dataBook} handleRemoveBasket={this.removeBasket} />
       <AddBookForm handleAddBook={this.addBook}/>
       <SearchForm />
