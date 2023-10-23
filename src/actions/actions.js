@@ -1,0 +1,3 @@
+export const ADD_BOOK_TO_BASKET = "ADD_BOOK_TO_BASKET";
+export const REMOVE_BOOK_FROM_BASKET = "REMOVE_BOOK_FROM_BASKET";
+export const ADD_BOOK = "ADD_BOOK";

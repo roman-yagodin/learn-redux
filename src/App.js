@@ -9,7 +9,7 @@ import AddBookForm from './components/AddBookForm.js';
 import SearchForm from './components/SearchForm.js';
 import { Button } from 'reactstrap';
 
-
+/*
 import { legacy_createStore, combineReducers  } from 'redux';
 
 function sReducer (state = 0, action) {
@@ -51,7 +51,7 @@ store.dispatch({ type: "set/n", value: 5 });
 
 setTimeout(() => store.dispatch({ type: "set/s", value: 5_000_000 }), 5000);
 
-
+*/
 
 class App extends React.Component{
  
