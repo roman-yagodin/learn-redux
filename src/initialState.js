@@ -1,7 +1,7 @@
 import data from "./data/data.json";
 
 export default {
-    dataBook: data,
+    //dataBook: data,
     items: {},
     addBookForm: {
         id: 0,
@@ -9,7 +9,7 @@ export default {
         author: "",
         price: 0
     },
-    searchForm: {
-        value: ""
-    }
+    // searchForm: {
+    //     value: ""
+    // }
 }
