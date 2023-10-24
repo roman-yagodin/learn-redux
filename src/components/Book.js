@@ -3,28 +3,21 @@ import React from 'react';
 export default class Book extends React.Component{
   constructor(props){
      super(props);
-     this.state = { selected: false };
+     
      this.handleClick   = this.handleClick.bind(this);
      this.addBasketBook = this.addBasketBook.bind(this);
   }
  
   handleClick(ev){
    ev.preventDefault();
-   this.setState({ selected: !this.state.selected});
+   
   }
- 
-  componentDidMount(){
-    console.log("монтаж");
-  } 
-  componentWillUnmount(){
-    console.log("демонтаж");
-  } 
+  
  addBasketBook(ev){
     ev.preventDefault();
-    let handleAddBasket = this.props.handleAddBasket;
-  console.log(this.props.id)
-    handleAddBasket(this.props.id);
+    
  } 
+ 
   render(){
    const price = this.props.price ? <strong>{this.props.price}</strong> : <del>&nbsp;</del>;
     return <div className={"book " + (this.state.selected ? "book-selected" : "book-default") } >

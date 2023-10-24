@@ -12,7 +12,6 @@ export default class SearchForm extends React.Component{
  componentDidMount(){
 
  }
- 
 
   handleSubmit(ev){
 

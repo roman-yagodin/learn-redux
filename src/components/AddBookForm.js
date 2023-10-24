@@ -4,30 +4,10 @@ export default class AddBookForm extends React.Component{
  
  constructor(props){
      super(props);
-     this.state = {
-       id: 0,
-       title: "",
-       author: "",
-       price: 0     
-     };
-    
-     //сво-во для будущего "рефа"
-     this.inputTitle = null;
-     //получение самой ссылки
-     this.setRefInputTitle = elem => {
-       this.inputTitle = elem;
-     } 
-     this.focusTextInput = () => {
-      if (this.inputTitle) this.inputTitle.focus();
-     }
      
      this.handleSubmit = this.handleSubmit.bind(this);
      this.handleChange = this.handleChange.bind(this);
   }
- 
- componentDidMount(){
-  this.focusTextInput();
- }
  
   isValidBook(book){
    return book.id && book.title.trim() && book.author.trim() ;
@@ -35,27 +15,12 @@ export default class AddBookForm extends React.Component{
  //https://vk.com/jsspec
   handleSubmit(ev){
    ev.preventDefault();
-   let book = {
-     id: parseInt(this.state.id),
-     title: this.state.title,
-     author: this.state.author,
-     price: parseFloat(this.state.price)    
-   };
    
-   if(this.isValidBook(book)){
-     //dataBook.push(book);
-     this.setState({id: 0,title: "",author: "",price: 0});
-     let handleAddBook = this.props.handleAddBook;
-     handleAddBook(book);
-   }else 
-     alert("Заполните поля");
   } 
+  
   handleChange(ev){
    ev.preventDefault();
-   //console.log(ev.target.name,ev.target.value);
-   let newstate = {};
-   newstate[ev.target.name]=ev.target.value;
-   this.setState(newstate);
+
   }
  
   render(){
