@@ -9,7 +9,7 @@ export default {
         author: "",
         price: 0
     },
-    // searchForm: {
-    //     value: ""
-    // }
+    searchForm: {
+        value: ""
+    }
 }

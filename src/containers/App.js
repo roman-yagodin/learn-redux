@@ -3,8 +3,8 @@ import App from '../App';
 import { addBookToBasket } from '../actions/actionCreators';
 
 function mapStateToProps(state) {
-    const {dataBook} = state;
-    return {dataBook};
+    const {dataBook, searchForm} = state;
+    return {dataBook, searchForm};
 }
 
 function mapDispatchToProps(dispatch) {

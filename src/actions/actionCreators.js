@@ -5,7 +5,8 @@ import {
     REMOVE_BOOK,
     CHANGE_TITLE,
     CHANGE_AUTHOR,
-    CHANGE_PRICE
+    CHANGE_PRICE,
+    CHANGE_SEARCH   
   } from './actions';
 
 export const addBookToBasket = (id) => (
@@ -34,4 +35,8 @@ export const addBook = (book) => (
 
 export const removeBook = (id) => (
   { type: REMOVE_BOOK, id }
+);
+
+export const changeSearch = (value) => (
+  { type: CHANGE_SEARCH, value }
 );

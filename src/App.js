@@ -6,14 +6,16 @@ import Book from "./components/Book.js";
 import BookWithoutPrice from "./components/BookWithoutPrice.js";
 import Basket from './containers/Basket.js';
 import AddBookForm from './containers/AddBookForm.js';
-import SearchForm from './components/SearchForm.js';
+import SearchForm from './containers/SearchForm.js';
 import Footer from './components/Footer';
 import { Button } from 'reactstrap';
 
 class App extends React.Component{
   
   render(){
-    const book = this.props.dataBook. map( item => (                         
+    const book = this.props.dataBook
+    .filter(item => item.title.toLowerCase().startsWith(this.props.searchForm.value.toLowerCase()))
+    .map( item => (                         
     item["price"] ?   <Book
     id={item["id"]}
     key={item["id"]}
