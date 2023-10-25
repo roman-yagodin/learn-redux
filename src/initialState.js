@@ -1,7 +1,7 @@
 import data from "./data/data.json";
 
 export default {
-    //dataBook: data,
+    dataBook: data,
     items: {},
     addBookForm: {
         id: 0,

@@ -4,9 +4,10 @@ import {
 } from "../actions/actions.js";
 
 export const items = function(state = {}, action) {
-    let newState = Object.assign(state);
+    let newState;
     switch (action.type) {
         case ADD_BOOK_TO_BASKET:
+            newState = Object.assign({}, state);
             if (!(action.id in newState)) {
                 newState[action.id] = 0;
             }
