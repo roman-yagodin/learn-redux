@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { v4 as uuidv4 } from 'uuid';
 export default class AddBookForm extends React.Component{
 
  constructor(props){
@@ -10,17 +10,39 @@ export default class AddBookForm extends React.Component{
   }
  
   isValidBook(book){
-   return book.id && book.title.trim() && book.author.trim() ;
+   return book.title.trim() && book.author.trim() ;
   }
 //https://vk.com/jsspec
   handleSubmit(ev){
    ev.preventDefault();
-   
+    const book = {
+      id: uuidv4(),
+      title: this.props.title,
+      author: this.props.author,
+      price: this.props.price
+    };
+
+    if (this.isValidBook(book)) {
+      this.props.add(book);
+    }
+    else {
+      alert('Поля заполнены некорректно!');
+    }
   } 
   
   handleChange(ev){
    ev.preventDefault();
-
+    switch(ev.target.name) {
+      case 'title':
+        this.props.changeTitle(ev.target.value);
+        break;
+      case 'author':
+        this.props.changeAuthor(ev.target.value);
+        break;
+      case 'price':
+        this.props.changePrice(ev.target.value);
+        break;
+    }
   }
  
   render(){

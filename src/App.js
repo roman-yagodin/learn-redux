@@ -20,6 +20,7 @@ class App extends React.Component{
     title={item["title"]}
     author={item["author"]}
     price={item["price"]}
+    handleAddToBasket={this.props.addBookToBasket}
     /> :
     <BookWithoutPrice
     key={item["id"]}

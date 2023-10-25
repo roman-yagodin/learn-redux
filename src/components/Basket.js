@@ -17,7 +17,10 @@ render (){
        <a href="#">{dataBook[item]['title']}</a>
        <span>{this.props.items[item]}шт</span>
        <span>{dataBook[item]['price']}руб</span>
-       <a href="#" onClick={() => {alert(1)}} id={item} className="btn btn-success" >Удалить</a>
+       <a href="#" onClick={(ev) => {
+          ev.preventDefault();
+          this.props.remove(item);
+        }} id={item} className="btn btn-success" >Удалить</a>
       </div>
     )  
  }

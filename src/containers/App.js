@@ -1,9 +1,16 @@
 import { connect } from 'react-redux';
 import App from '../App';
+import { addBookToBasket } from '../actions/actionCreators';
 
 function mapStateToProps(state) {
     const {dataBook} = state;
     return {dataBook};
 }
 
-export default connect(mapStateToProps)(App);
+function mapDispatchToProps(dispatch) {
+    return {
+        addBookToBasket: (id) => dispatch(addBookToBasket(id))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

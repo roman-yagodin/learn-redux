@@ -10,7 +10,10 @@ export default class Book extends React.Component{
     <p> Автор: {this.props.author}</p>
     <p> Цена: {price} руб.</p>
     <a href="#" onClick={() => {alert(2)}} className="btn btn-success">Сравнить</a>&nbsp;
-    <a href="#" onClick={() => {alert(2)}} className="btn btn-success">В корзину</a>
+    <a href="#" onClick={(ev) => {
+        ev.preventDefault();
+        this.props.handleAddToBasket(this.props.id);
+      }} className="btn btn-success">В корзину</a>
     </div>;
   }
 }
